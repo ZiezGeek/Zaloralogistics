@@ -361,7 +361,7 @@
     content:'';position:absolute;bottom:-120px;left:-100px;width:420px;height:420px;
     background:radial-gradient(circle, rgba(198,162,77,.16), transparent 70%);
   }
-  .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:start;position:relative;z-index:2;}
+  .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:start;position:relative;z-index:2;}
   .contact h2{font-size:clamp(2.2rem,4.6vw,3.6rem);color:#fff;}
   .contact .sub{font-size:1.4rem;color:var(--gold-bright);font-weight:400;text-transform:none;font-family:'Playfair Display',serif;margin-top:6px;}
   .contact-list{margin-top:40px;display:flex;flex-direction:column;gap:26px;}
@@ -381,12 +381,32 @@
   .quote-card p.small{color:rgba(255,255,255,.6);font-size:.92rem;margin-bottom:24px;}
   .field{margin-bottom:16px;}
   .field label{display:block;font-size:.75rem;color:rgba(255,255,255,.55);margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em;}
-  .field input,.field textarea{
+  .field input,.field textarea,.field select{
     width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.15);
     border-radius:10px;padding:12px 14px;color:#fff;font-family:'Inter',sans-serif;font-size:.92rem;
   }
+  .field select{appearance:none;-webkit-appearance:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c6a24d' stroke-width='2'><path d='M6 9l6 6 6-6'/></svg>");
+    background-repeat:no-repeat;background-position:right 14px center;background-size:16px;
+  }
+  .field select option{background:#2b303a;color:#fff;}
   .field input::placeholder,.field textarea::placeholder{color:rgba(255,255,255,.35);}
   .field textarea{resize:vertical;min-height:80px;}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .form-section{margin-bottom:26px;}
+  .form-section:last-of-type{margin-bottom:20px;}
+  .form-section-title{
+    font-family:'Poppins',sans-serif;font-weight:700;font-size:.78rem;
+    text-transform:uppercase;letter-spacing:.08em;color:var(--gold-bright);
+    margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.1);
+  }
+  .radio-group{display:flex;gap:22px;margin-top:4px;}
+  .radio-opt{display:flex;align-items:center;gap:9px;font-size:.92rem;color:rgba(255,255,255,.85);cursor:pointer;}
+  .radio-opt input{width:16px;height:16px;accent-color:var(--gold-bright);margin:0;}
+  .consent{display:flex;gap:12px;align-items:flex-start;margin-bottom:22px;}
+  .consent input{width:17px;height:17px;flex:none;margin-top:2px;accent-color:var(--gold-bright);}
+  .consent label{font-size:.82rem;color:rgba(255,255,255,.65);line-height:1.5;text-transform:none;letter-spacing:0;}
+  .consent label a{color:var(--gold-bright);text-decoration:underline;}
   .quote-card .btn{width:100%;justify-content:center;margin-top:6px;}
 
   footer{
@@ -676,7 +696,7 @@
         </div>
         <div class="c-item">
           <div class="c-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="10" r="3"/><path d="M12 21c4-5 7-8.5 7-12a7 7 0 10-14 0c0 3.5 3 7 7 12z"/></svg></div>
-          <div><div class="lab">Location</div><div class="val">2 Bamboo Lane, Pinetown, 3610</div></div>
+          <div><div class="lab">Location</div><div class="val">8 Emerald Street, Secunda, 2302</div></div>
         </div>
       </div>
       <div style="margin-top:34px;border-radius:20px;overflow:hidden;max-width:440px;box-shadow:0 30px 60px -25px rgba(0,0,0,.6);">
@@ -685,13 +705,80 @@
     </div>
 
     <div class="quote-card">
-      <h3>Request a Quote</h3>
-      <p class="small">Tell us about your load and we'll get back to you.</p>
+      <h3>Send an Enquiry</h3>
+      <p class="small">Tell us how we can help and we'll get back to you.</p>
       <form onsubmit="event.preventDefault(); this.querySelector('.btn').textContent='Sent — thank you!';">
-        <div class="field"><label>Full Name</label><input type="text" placeholder="Your name" required></div>
-        <div class="field"><label>Email or Phone</label><input type="text" placeholder="How can we reach you" required></div>
-        <div class="field"><label>Load Details</label><textarea placeholder="Route, cargo type, estimated volume..."></textarea></div>
-        <button type="submit" class="btn btn-gold">Send Request</button>
+
+        <div class="form-section">
+          <div class="form-section-title">Your Details</div>
+          <div class="field-row">
+            <div class="field"><label>First Name*</label><input type="text" required></div>
+            <div class="field"><label>Last Name*</label><input type="text" required></div>
+          </div>
+          <div class="field"><label>Email Address*</label><input type="email" required></div>
+          <div class="field"><label>Phone Number</label><input type="tel"></div>
+          <div class="field">
+            <label>How would you prefer to be contacted?*</label>
+            <div class="radio-group">
+              <label class="radio-opt"><input type="radio" name="contact-pref" value="phone" required> Phone</label>
+              <label class="radio-opt"><input type="radio" name="contact-pref" value="email"> Email</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="form-section-title">Company and Location</div>
+          <div class="field"><label>Company*</label><input type="text" required></div>
+          <div class="field"><label>Your Role</label><input type="text"></div>
+          <div class="field">
+            <label>Country*</label>
+            <select required>
+              <option value="" selected disabled>Select country</option>
+              <option>South Africa</option>
+              <option>Botswana</option>
+              <option>Namibia</option>
+              <option>Eswatini</option>
+              <option>Mozambique</option>
+              <option>Zimbabwe</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="form-section-title">Your Enquiry</div>
+          <div class="field">
+            <label>What would you like to do?*</label>
+            <select required>
+              <option value="" selected disabled>Select an option</option>
+              <option>Request a quote</option>
+              <option>Book a delivery</option>
+              <option>Discuss a contract / partnership</option>
+              <option>Ask a general question</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Which department is this related to?*</label>
+            <select required>
+              <option value="" selected disabled>Select department</option>
+              <option>Road Freight Transport</option>
+              <option>Full Truck Load (FTL) &amp; Partial Load (LTL)</option>
+              <option>Industrial &amp; Manufacturing Logistics</option>
+              <option>Agricultural Transport</option>
+              <option>Contract Logistics &amp; Partnerships</option>
+              <option>General / Other</option>
+            </select>
+          </div>
+          <div class="field"><label>Briefly describe your enquiry*</label><textarea required placeholder="Route, cargo type, estimated volume..."></textarea></div>
+        </div>
+
+        <div class="consent">
+          <input type="checkbox" id="consent" required>
+          <label for="consent">I agree to the processing of my personal information in line with Zalora Logistics's <a href="#">privacy policy</a>.*</label>
+        </div>
+
+        <button type="submit" class="btn btn-gold">Send Enquiry</button>
       </form>
     </div>
   </div>
