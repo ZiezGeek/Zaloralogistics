@@ -167,7 +167,7 @@
     background:var(--navy);
     color:#fff;
     overflow:hidden;
-    padding:90px 0 0;
+    padding:56px 0 0;
   }
   .hero::before{
     content:'';position:absolute;top:-140px;right:-160px;width:520px;height:520px;
@@ -185,9 +185,9 @@
   .hero h1 span{color:var(--gold-bright);}
   .hero p.lede{
     font-size:1.08rem;color:rgba(255,255,255,.72);max-width:520px;line-height:1.65;
-    margin-bottom:34px;
+    margin-bottom:24px;
   }
-  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:46px;}
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:30px;}
   .hero-chips{display:flex;gap:14px;flex-wrap:wrap;}
   .chip{
     display:flex;align-items:center;gap:10px;
@@ -211,12 +211,12 @@
   .hero-badge .num{font-size:1.6rem;font-weight:900;line-height:1;}
   .hero-badge .lbl{font-size:.68rem;font-weight:600;letter-spacing:.03em;margin-top:4px;}
 
-  .hero-wave{height:70px;margin-top:60px;}
+  .hero-wave{height:70px;margin-top:32px;}
 
   /* ---------- SECTION HEADERS ---------- */
   section{position:relative;}
-  .section-pad{padding:100px 0;}
-  .section-head{margin-bottom:56px;max-width:640px;}
+  .section-pad{padding:64px 0;}
+  .section-head{margin-bottom:36px;max-width:640px;}
   .section-head h2{font-size:clamp(2rem,4vw,2.9rem);margin-top:10px;color:var(--ink);}
   .section-head p{color:var(--muted);margin-top:16px;font-size:1.02rem;line-height:1.7;}
 
@@ -278,12 +278,11 @@
   /* ---------- SERVICES ---------- */
   .services{background:var(--offwhite);}
   .service-row{
-    display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;
-    padding:56px 0;
+    max-width:720px;
+    padding:32px 0;
     border-bottom:1px solid var(--line);
   }
   .service-row:last-child{border-bottom:none;}
-  .service-row:nth-child(even) .s-media{order:2;}
   .service-tag{
     display:inline-flex;align-items:center;gap:12px;margin-bottom:20px;
   }
@@ -406,14 +405,25 @@
   .foot-row .brand-type .z{color:var(--gold-bright);}
 
   @media(max-width:940px){
-    .navlinks{display:none;}
+    .navlinks{
+      display:none;
+      position:absolute;top:100%;left:0;right:0;
+      background:#fff;
+      flex-direction:column;
+      gap:0;
+      padding:8px 32px 18px;
+      border-top:1px solid var(--line);
+      box-shadow:0 16px 24px -18px rgba(0,0,0,.25);
+    }
+    .navlinks.open{display:flex;}
+    .navlinks a{padding:14px 0;border-bottom:1px solid var(--line);}
+    .navlinks a:last-child{border-bottom:none;}
     .burger{display:block;}
+    .nav{position:relative;}
     .hero-grid,.about-grid,.vm-grid,.values-wrap,.comp-grid,.commit-grid,.safety-grid,.contact-grid{
       grid-template-columns:1fr!important;
     }
-    .service-row{grid-template-columns:1fr;padding:36px 0;}
-    .service-row:nth-child(even) .s-media{order:0;}
-    .s-media{max-width:220px;margin:0 auto 10px;}
+    .service-row{padding:28px 0;}
     .hero{padding-top:70px;}
     .hero-badge{position:static;margin-top:26px;display:inline-flex;flex-direction:column;}
     .section-pad{padding:70px 0;}

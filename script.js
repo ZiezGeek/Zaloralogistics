@@ -16,3 +16,23 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
+// Mobile nav toggle
+document.addEventListener('DOMContentLoaded', function () {
+  var burger = document.getElementById('burgerBtn');
+  var navlinks = document.getElementById('navlinks');
+
+  if (!burger || !navlinks) return;
+
+  burger.addEventListener('click', function () {
+    var isOpen = navlinks.classList.toggle('open');
+    burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+
+  navlinks.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      navlinks.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+    });
+  });
+});
