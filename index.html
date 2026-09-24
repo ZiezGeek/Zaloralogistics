@@ -9,13 +9,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<link rel="preload" as="image" href="images/banner-fleet.jpg">
 </head>
 <body>
 
 <header>
   <div class="nav">
     <a href="#top" class="brand">
-      <img src="images/logo.png" alt="Zalora Logistics logo">
+      <img src="images/logo.png" alt="Zalora Logistics logo" width="400" height="400" decoding="async">
     </a>
     <nav class="navlinks" id="navlinks">
       <a href="#about">About</a>
@@ -32,7 +33,7 @@
 </header>
 
 <div class="top-banner">
-  <img src="images/banner-fleet.jpg" alt="Zalora Logistics truck fleet lined up" style="width:100%;height:100%;object-fit:cover;object-position:center 35%;">
+  <img src="images/banner-fleet.jpg" alt="Zalora Logistics truck fleet lined up" width="1920" height="819" fetchpriority="high" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:center 35%;">
   <div class="banner-caption">
     <div>
       <div class="cap-title">On the road across South Africa</div>
@@ -89,6 +90,10 @@
         <div class="stat"><div class="n">135%</div><div class="t">Procurement Recognition</div></div>
         <div class="stat"><div class="n">100%</div><div class="t">Black Female-Owned</div></div>
       </div>
+      <a href="https://www.linkedin.com/in/zalora-logistics-5575ba433/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;margin-top:24px;font-weight:600;color:#0a66c2;text-decoration:none;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="#0a66c2" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+        Follow Zalora Logistics on LinkedIn
+      </a>
     </div>
   </div>
 </section>
@@ -242,7 +247,7 @@
         </div>
       </div>
       <div style="margin-top:34px;max-width:440px;">
-        <img src="images/contact-warehouse.jpg" alt="Zalora Logistics warehouse team" style="width:100%;display:block;">
+        <img src="images/contact-warehouse.jpg" alt="Zalora Logistics warehouse team" width="900" height="600" loading="lazy" decoding="async" style="width:100%;display:block;">
       </div>
       <div style="margin-top:24px;max-width:440px;border-radius:12px;overflow:hidden;border:1px solid var(--line);">
         <iframe
@@ -348,6 +353,6 @@
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script src="script.js" defer></script>
 </body>
 </html>
